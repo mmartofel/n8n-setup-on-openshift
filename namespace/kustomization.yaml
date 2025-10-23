@@ -1,0 +1,3 @@
+resources:
+  - n8n-namespace.yaml
+  - n8n-role-binding.yaml

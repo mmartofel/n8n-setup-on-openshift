@@ -1,0 +1,3 @@
+resources:
+  - n8n-redis-deployment.yaml
+  - n8n-redis-service.yaml

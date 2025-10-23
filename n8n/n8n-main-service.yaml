@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: n8n-main-service
+  labels:
+    app: n8n-main-service
+    app.kubernetes.io/component: n8n-main-service
+    app.kubernetes.io/instance: n8n-main-service
+spec:
+  ports:
+  - name: 5678-tcp
+    port: 5678
+    targetPort: 5678
+  selector:
+    app: n8n
+    role: main
+  type: ClusterIP
+  sessionAffinity: None

@@ -1,0 +1,5 @@
+resources:
+  - n8n-postgres-persistentvolumeclaim.yaml
+  - n8n-postgres-deployment.yaml
+  - n8n-postgres-service.yaml
+  - n8n-postgres-configmap-postgres.yaml

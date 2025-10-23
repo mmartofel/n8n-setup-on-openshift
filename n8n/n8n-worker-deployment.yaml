@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/vcs-uri: 'https://github.com/mmartofel/'
+  labels:
+    app: n8n-worker
+    app.kubernetes.io/component: automation-worker
+    app.kubernetes.io/name: n8n-worker
+    app.kubernetes.io/part-of: N8N-WORKERS
+    app.openshift.io/runtime: n8n
+  name: n8n-worker
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: n8n, role: worker } }
+  template:
+    metadata:
+      labels: { app: n8n, role: worker }
+    spec:
+      containers:
+      - name: n8n
+        image: n8nio/n8n:latest
+        command: ["n8n", "worker"]
+        envFrom:
+        - secretRef: { name: n8n-secrets }
+        env:
+        - name: DB_TYPE
+          value: "postgresdb"
+        - name: EXECUTIONS_MODE
+          value: "queue"
+        - name: N8N_CONCURRENCY
+          value: "3"   # tune based on CPU/memory
+        resources:
+          requests: { cpu: "300m", memory: "512Mi" }
+          limits:   { cpu: "1500m", memory: "2Gi" }

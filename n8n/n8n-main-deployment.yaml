@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/vcs-uri: 'https://github.com/mmartofel/'
+  labels:
+    app: n8n-main
+    app.kubernetes.io/component: automation
+    app.kubernetes.io/name: n8n
+    app.kubernetes.io/part-of: N8N
+    app.openshift.io/runtime: n8n
+  name: n8n-main
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: n8n, role: main } }
+  template:
+    metadata:
+      labels: { app: n8n, role: main }
+    spec:
+      containers:
+      - name: n8n
+        image: n8nio/n8n:latest
+        command: ["n8n", "start"]
+        envFrom:
+        - secretRef: { name: n8n-secrets }
+        env:
+        - name: DB_TYPE
+          value: "postgresdb"
+        - name: EXECUTIONS_MODE
+          value: "queue"
+        - name: N8N_METRICS
+          value: "true"
+        ports: [{ containerPort: 5678 }]
+        readinessProbe:
+          httpGet: { path: /healthz, port: 5678 }
+          initialDelaySeconds: 10
+        livenessProbe:
+          httpGet: { path: /healthz, port: 5678 }
+          initialDelaySeconds: 30
+        resources:
+          requests: { cpu: "200m", memory: "512Mi" }
+          limits:   { cpu: "1",    memory: "1Gi" }

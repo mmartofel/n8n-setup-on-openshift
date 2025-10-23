@@ -1,0 +1,11 @@
+resources:
+  - n8n-secret.yaml
+  - n8n-main-deployment.yaml
+  - n8n-main-service.yaml
+  - n8n-main-route.yaml
+  - n8n-webhook-deployment.yaml
+  - n8n-webhook-service.yaml
+  - n8n-webhook-route.yaml
+  - n8n-worker-deployment.yaml
+  - n8n-worker-service.yaml
+  - n8n-worker-autoscaler.yaml

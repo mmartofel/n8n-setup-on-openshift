@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/vcs-uri: 'https://github.com/mmartofel/'
+  labels:
+    app: n8n-webhook
+    app.kubernetes.io/component: automation-webhook
+    app.kubernetes.io/name: n8n-webhook
+    app.kubernetes.io/part-of: N8N-WEBHOOKS
+    app.openshift.io/runtime: n8n
+  name: n8n-webhook
+spec:
+  replicas: 2
+  selector: { matchLabels: { app: n8n, role: webhook } }
+  template:
+    metadata:
+      labels: { app: n8n, role: webhook }
+    spec:
+      containers:
+      - name: n8n
+        image: n8nio/n8n:latest
+        command: ["n8n", "webhook"]
+        envFrom:
+        - secretRef: { name: n8n-secrets }
+        env:
+        - name: DB_TYPE
+          value: "postgresdb"
+        - name: EXECUTIONS_MODE
+          value: "queue"
+        ports: [{ containerPort: 5678 }]
+        readinessProbe:
+          httpGet: { path: /healthz, port: 5678 }
+        resources:
+          requests: { cpu: "100m", memory: "256Mi" }
+          limits:   { cpu: "500m", memory: "512Mi" }
