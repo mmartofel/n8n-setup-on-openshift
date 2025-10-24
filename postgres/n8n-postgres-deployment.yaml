@@ -76,6 +76,6 @@ spec:
       volumes:
         - name: postgres-data
           persistentVolumeClaim:
-            claimName: postgres-pvc
+            claimName: n8n-postgres-pvc
       nodeSelector:
         kubernetes.io/os: linux
