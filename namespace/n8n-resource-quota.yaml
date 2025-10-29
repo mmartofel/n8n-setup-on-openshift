@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ResourceQuota
 metadata:
   name: n8n-cpu-mem-quota
+  namespace: n8n
 spec:
   hard:
     cpu: '8'

@@ -10,6 +10,7 @@ metadata:
     app.kubernetes.io/part-of: N8N
     app.openshift.io/runtime: redis
   name: redis
+  namespace: n8n
 spec:
   replicas: 1
   selector:

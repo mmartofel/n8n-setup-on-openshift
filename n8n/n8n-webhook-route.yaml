@@ -2,6 +2,7 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: n8n-webhook-route
+  namespace: n8n
   labels:
     app: n8n-webhook-route
     app.kubernetes.io/component: n8n-webhook-route

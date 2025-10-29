@@ -2,6 +2,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: n8n-worker-hpa
+  namespace: n8n
 spec:
   scaleTargetRef:
     apiVersion: apps/v1

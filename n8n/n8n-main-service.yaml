@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: n8n-main-service
+  namespace: n8n
   labels:
     app: n8n-main-service
     app.kubernetes.io/component: n8n-main-service

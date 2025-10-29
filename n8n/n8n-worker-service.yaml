@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: n8n-worker-service
+  namespace: n8n
   labels:
     app: n8n-worker-service
     app.kubernetes.io/component: n8n-worker-service

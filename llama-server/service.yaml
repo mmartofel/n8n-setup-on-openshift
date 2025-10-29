@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: llama-server-service
+  namespace: n8n
   labels:
     app: llama-server
     app.kubernetes.io/component: llama-server

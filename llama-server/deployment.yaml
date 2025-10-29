@@ -10,6 +10,7 @@ metadata:
     app.kubernetes.io/part-of: 'LLM-SERVICES'
     app.openshift.io/runtime: llama
   name: llama-server
+  namespace: n8n
 spec:
   replicas: 1
   selector:

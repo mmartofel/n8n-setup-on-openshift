@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: redis
+  namespace: n8n
   labels:
     app: redis
     app.kubernetes.io/component: redis

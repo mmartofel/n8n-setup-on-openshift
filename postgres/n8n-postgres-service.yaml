@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: postgres
+  namespace: n8n
   labels:
     app: postgres
     app.kubernetes.io/component: postgres
