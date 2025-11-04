@@ -12,7 +12,7 @@ spec:
     - name: 8000-tcp
       protocol: TCP
       port: 8000
-      targetPort: 8000
+      targetPort: 11434
   internalTrafficPolicy: Cluster
   type: ClusterIP
   sessionAffinity: None
