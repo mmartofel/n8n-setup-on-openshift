@@ -1,0 +1,7 @@
+resources:
+  - open-webui-anyuid-role-binding.yaml
+  - webui-pvc.yaml
+  - webui-configmap.yaml
+  - webui-deployment.yaml
+  - webui-route.yaml
+  - webui-service.yaml
