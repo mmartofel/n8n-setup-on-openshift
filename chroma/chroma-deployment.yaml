@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/component: chroma
     app.kubernetes.io/instance: chroma
     app.kubernetes.io/name: chroma
-    app.kubernetes.io/part-of: llm_serving
+    app.kubernetes.io/part-of: OPEN-WEBUI
     app.openshift.io/runtime-namespace: n8n
 spec:
   replicas: 1

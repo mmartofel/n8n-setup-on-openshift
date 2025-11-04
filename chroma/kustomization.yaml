@@ -1,0 +1,6 @@
+resources:
+  - chroma-pvc.yaml 
+  - chroma-configmap.yaml
+  - chroma-deployment.yaml
+  - chroma-service.yaml
+  

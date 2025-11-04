@@ -2,13 +2,13 @@ kind: Service
 apiVersion: v1
 metadata:
   name: chroma
-  namespace: open-webui
+  namespace: n8n
   labels:
     app: chroma
     app.kubernetes.io/component: chroma
     app.kubernetes.io/instance: chroma
     app.kubernetes.io/name: chroma
-    app.kubernetes.io/part-of: llm_serving
+    app.kubernetes.io/part-of: OPEN-WEBUI
     app.openshift.io/runtime-version: latest
 spec:
   ports:

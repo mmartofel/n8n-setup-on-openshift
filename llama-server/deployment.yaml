@@ -7,7 +7,7 @@ metadata:
     app: llama-server
     app.kubernetes.io/component: AI
     app.kubernetes.io/name: llama-server
-    app.kubernetes.io/part-of: 'LLM-SERVICES'
+    app.kubernetes.io/part-of: 'LLM-SERVER'
     app.openshift.io/runtime: llama
   name: llama-server
   namespace: n8n

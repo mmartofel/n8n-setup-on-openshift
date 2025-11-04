@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.openshift.io/connects-to: '[{"apiVersion":"apps/v1","kind":"Deployment","name":"ollama"}]'
+    app.openshift.io/connects-to: '[{"apiVersion":"apps/v1","kind":"Deployment","name":"llama-server"},{"apiVersion":"v1","kind":"Service","name":"chroma"}]'
   name: open-webui
   namespace: n8n
   labels:
@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/component: open-webui
     app.kubernetes.io/instance: open-webui
     app.kubernetes.io/name: open-webui
-    app.kubernetes.io/part-of: llm_serving  
+    app.kubernetes.io/part-of: OPEN-WEBUI
 spec:
   replicas: 1
   selector:
