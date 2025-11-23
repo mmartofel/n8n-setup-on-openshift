@@ -4,5 +4,7 @@ metadata:
   name: chroma-configmap
   namespace: n8n
 data:
+  CHROMA_PORT: '8000'
+  CHROMA_HOST: '0.0.0.0'
   IS_PERSISTENT: 'True'
   PERSIST_DIRECTORY: '/chroma/chroma'
